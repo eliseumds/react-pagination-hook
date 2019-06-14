@@ -1,8 +1,8 @@
 {
   "name": "react-pagination-hook",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "A React hook that helps you render a paginator",
+  "keywords": ["react", "hook", "pagination", "paginator"],
   "main": "dist/react-pagination-hook.umd.js",
   "module": "dist/react-pagination-hook.es.js",
   "typings": "dist/types/react-pagination-hook.d.ts",
@@ -12,7 +12,7 @@
   "author": "Eliseu dos Santos <eliseumds@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/eliseumds/react-pagination-hook"
   },
   "license": "MIT",
   "engines": {
