@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 export type ConfigArg = {
   numberOfPages: number;
@@ -113,6 +113,12 @@ export function usePagination(_config: ConfigArg) {
   const goToPage = useCallback<State['goToPage']>(pageNumber => {
     setActivePage(pageNumber);
   }, []);
+
+  useEffect(() => {
+    if (config.initialPage !== activePage) {
+      setActivePage(config.initialPage);
+    }
+  }, [config.initialPage]);
 
   return {
     activePage,

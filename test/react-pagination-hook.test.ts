@@ -59,12 +59,18 @@ describe('react-pagination-hook', () => {
   });
 
   describe('with basic config', () => {
-    const hook = renderHook(() =>
-      usePagination({
-        numberOfPages: 10,
-        maxButtons: 3,
-        initialPage: 1,
-      })
+    const hook = renderHook(
+      (props: { initialPage: number }) =>
+        usePagination({
+          numberOfPages: 10,
+          maxButtons: 3,
+          initialPage: props.initialPage,
+        }),
+      {
+        initialProps: {
+          initialPage: 1,
+        },
+      }
     );
 
     test('return initial state on initial render', () => {
@@ -96,10 +102,8 @@ describe('react-pagination-hook', () => {
       expect(hook.result.current.visiblePieces).toStrictEqual(buildExpectation(expectation));
     });
 
-    test('navigate to the last page', () => {
-      act(() => {
-        hook.result.current.goToPage(10);
-      });
+    test('rerender with initialPage as the last one', () => {
+      hook.rerender({ initialPage: 10 });
 
       expect(hook.result.current.activePage).toBe(10);
       expect(hook.result.current.isFirst).toBe(false);

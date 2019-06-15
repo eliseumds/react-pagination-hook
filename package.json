@@ -1,8 +1,13 @@
 {
   "name": "react-pagination-hook",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "A React hook that helps you render a paginator",
-  "keywords": ["react", "hook", "pagination", "paginator"],
+  "keywords": [
+    "react",
+    "hook",
+    "pagination",
+    "paginator"
+  ],
   "main": "dist/react-pagination-hook.umd.js",
   "module": "dist/react-pagination-hook.es.js",
   "typings": "dist/types/react-pagination-hook.d.ts",
@@ -36,7 +41,9 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -118,7 +125,7 @@
     "rollup": "1.15.2",
     "rollup-plugin-sourcemaps": "0.4.2",
     "rollup-plugin-typescript2": "0.21.1",
-    "semantic-release": "15.13.16",
+    "semantic-release": "^15.13.16",
     "shelljs": "0.8.3",
     "travis-deploy-once": "5.0.11",
     "ts-jest": "24.0.2",
