@@ -95,7 +95,6 @@ function computeVisiblePieces(activePage: number, config: Config): PaginatorPiec
 }
 
 export function usePagination(_config: ConfigArg) {
-  // tslint:disable-line strict-type-predicates
   if (typeof _config !== 'object') {
     throw new TypeError(
       `usePagination(config): config must be an object. Go ${typeof _config} instead`
