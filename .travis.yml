@@ -22,6 +22,7 @@ jobs:
     - stage: deploy
       node_js: '12'
       script:
+        - npm run test:prod
         - npm run build
         - npm run report-coverage
         - npm run deploy-docs
