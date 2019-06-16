@@ -34,7 +34,6 @@ jobs:
       script:
         - npm run build
         - npm run semantic-release
-      deploy:̊
       if: branch = master
 
 branches:
