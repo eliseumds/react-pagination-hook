@@ -83,6 +83,12 @@
             throw new TypeError("usePagination(config): config must be an object. Go " + typeof _config + " instead");
         }
         var config = __assign({ maxButtons: 5, padding: 2 }, _config);
+        if (config.initialPage > config.numberOfPages) {
+            config.initialPage = config.numberOfPages;
+        }
+        if (config.maxButtons > config.numberOfPages) {
+            config.maxButtons = config.numberOfPages;
+        }
         var _a = React.useState(config.initialPage), activePage = _a[0], setActivePage = _a[1];
         var numberOfPages = config.numberOfPages;
         var isFirst = activePage === 1;

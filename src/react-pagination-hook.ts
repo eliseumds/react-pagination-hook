@@ -102,6 +102,15 @@ export function usePagination(_config: ConfigArg) {
   }
 
   const config: Config = { maxButtons: 5, padding: 2, ..._config };
+
+  if (config.initialPage > config.numberOfPages) {
+    config.initialPage = config.numberOfPages;
+  }
+
+  if (config.maxButtons > config.numberOfPages) {
+    config.maxButtons = config.numberOfPages;
+  }
+
   const [activePage, setActivePage] = useState(config.initialPage);
   const { numberOfPages } = config;
   const isFirst = activePage === 1;
