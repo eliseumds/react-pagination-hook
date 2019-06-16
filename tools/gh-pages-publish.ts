@@ -19,9 +19,7 @@ let ghToken = process.env.GH_TOKEN
 
 echo("Deploying docs!!!")
 cd("docs")
-touch(".nojekyll")
-exec("git init")
-exec("git add .")
+exec("git add .") // Add the dist/ directory
 exec('git config user.name "Eliseu dos Santos"')
 exec('git config user.email "eliseumds@gmail.com"')
 exec('git commit -m "docs(docs): update gh-pages"')

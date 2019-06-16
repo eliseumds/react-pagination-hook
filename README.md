@@ -12,9 +12,9 @@
   </a>
 </p>
 
-> A React hook that helps you render a paginator
+> A React hook that helps you render a paginator (with TypeScript support)
 
-### 🏠 [Homepage](https://github.com/eliseumds/react-pagination-hook#readme)
+### 🏠 [See a demo](https://eliseumds.github.com/react-pagination-hook)
 
 ## Prerequisites
 
@@ -26,17 +26,37 @@
 npm install react-pagination-hook --save
 ```
 
+## API
+
+The hook returns the following object:
+
+```ts
+{
+  activePage: number;
+  isFirst: boolean;
+  isLast: boolean;
+  hasPrevious: boolean;
+  hasNext: boolean;
+  visiblePieces: PaginatorPiece[];
+  goToPage: (pageNumber: number) => void;
+}
+```
+
+And a *PaginatorPiece* is either of the following objects:
+
+```ts
+{ type: 'previous', pageNumber: number, isDisabled: boolean }
+// or
+{ type: 'next', pageNumber: number, isDisabled: boolean }
+// or
+{ type: 'page-number', pageNumber: number }
+// or
+{ type: 'ellipsis' }
+```
+
 ## Usage
 
-```sh
-npm run start
-```
-
-## Run tests
-
-```sh
-npm run test
-```
+You can use this hook to develop your own pagination component. [Check out the demo](https://eliseumds.github.com/react-pagination-hook)
 
 ## Author
 
