@@ -6,10 +6,11 @@ const pkg = require('./package.json')
 const libraryName = 'react-pagination-hook'
 
 const globals = {
-  react: 'React'
+  'react': 'React',
+  'react-dom': 'ReactDOM',
 };
 const sharedConfig = {
-  external: ['react'],
+  external: ['react', 'react-dom'],
   watch: {
     include: 'src/**',
   },
