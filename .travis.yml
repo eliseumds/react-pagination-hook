@@ -18,6 +18,7 @@ jobs:
       script: ls ./dist && npm run report-coverage
     - stage: deploy-docs
       script: npm run deploy-docs
+      node_js: '11'
       if: branch = master
     - stage: release
       node_js: '11'
