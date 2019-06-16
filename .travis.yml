@@ -1,28 +1,30 @@
 language: node_js
+
 cache:
   directories:
     - ~/.npm
+
 notifications:
   email: false
+
 node_js:
   - '8'
   - '10'
   - '12'
-script:
-  - npm run test:prod && npm run build
+
 jobs:
   include:
-    - stage: coverage
+    - stage: tests
+      script: npm run test:prod
+    - stage: deploy
       node_js: '12'
-      script: ls ./dist && npm run report-coverage
-    - stage: deploy-docs
-      script: npm run deploy-docs
-      node_js: '12'
+      script:
+        - npm run build
+        - npm run report-coverage
+        - npm run deploy-docs
+        - npm run semantic-release
       if: branch = master
-    - stage: release
-      node_js: '12'
-      script: npm run semantic-release
-      if: branch = master
+
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
