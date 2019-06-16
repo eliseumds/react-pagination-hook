@@ -13,6 +13,7 @@
     "esModuleInterop": true,
     "declarationDir": "dist/types",
     "outDir": "dist/lib",
+    "jsx": "react",
     "typeRoots": [
       "typings",
       "node_modules/@types"

@@ -58,11 +58,6 @@ function computeVisiblePieces(activePage: number, config: Config): PaginatorPiec
     isDisabled: activePage === 1,
   });
 
-  if (activePage > 2) {
-    visiblePieces.push({ type: 'page-number', pageNumber: 1 });
-    visiblePieces.push({ type: 'ellipsis' });
-  }
-
   // From https://gist.github.com/keon/5380f81393ad98ec19e6
   for (let i = 1; i < maxButtons && i < numberOfPages; ) {
     if (lowerLimit > 1) {
@@ -74,6 +69,11 @@ function computeVisiblePieces(activePage: number, config: Config): PaginatorPiec
       upperLimit++;
       i++;
     }
+  }
+
+  if (lowerLimit > 1) {
+    visiblePieces.push({ type: 'page-number', pageNumber: 1 });
+    visiblePieces.push({ type: 'ellipsis' });
   }
 
   for (let i = lowerLimit; i <= upperLimit; i++) {

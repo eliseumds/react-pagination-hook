@@ -14,7 +14,7 @@
 
 > A React hook that helps you render a paginator (with TypeScript support)
 
-### 🏠 [See a demo](https://eliseumds.github.com/react-pagination-hook)
+### 🏠 [See a demo](https://eliseumds.github.com/react-pagination-hook/docs)
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ And a *PaginatorPiece* is either of the following objects:
 
 ## Usage
 
-You can use this hook to develop your own pagination component. [Check out the demo](https://eliseumds.github.com/react-pagination-hook)
+You can use this hook to develop your own pagination component. [Check out the demo](https://eliseumds.github.com/react-pagination-hook/docs)
 
 ## Author
 
