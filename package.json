@@ -1,6 +1,6 @@
 {
   "name": "react-pagination-hook",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React hook that helps you render a paginator",
   "keywords": [
     "react",
