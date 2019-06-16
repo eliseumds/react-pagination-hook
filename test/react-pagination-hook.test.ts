@@ -58,6 +58,17 @@ describe('react-pagination-hook', () => {
     expect(hook2.result.error).toBeInstanceOf(TypeError);
   });
 
+  test('prevents out-of-range initial page', () => {
+    const hook = renderHook(() =>
+      usePagination({
+        initialPage: 99, // << higher than numberOfPages
+        numberOfPages: 10,
+      })
+    );
+
+    expect(hook.result.current.activePage).toBe(10);
+  });
+
   describe('with basic config', () => {
     const hook = renderHook(
       (props: { initialPage: number }) =>
