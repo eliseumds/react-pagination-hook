@@ -14,14 +14,13 @@ script:
 jobs:
   include:
     - stage: coverage
-      node_js: 11
-      script: npm run report-coverage
+      node_js: '11'
+      script: ls ./dist && npm run report-coverage
     - stage: deploy-docs
-      node_js: 11
       script: npm run deploy-docs
       if: branch = master
     - stage: release
-      node_js: 11
+      node_js: '11'
       script: npm run semantic-release
       if: branch = master
 branches:
