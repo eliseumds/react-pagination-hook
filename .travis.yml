@@ -16,6 +16,9 @@ script: npm run test:prod
 
 jobs:
   include:
+    - stage: lint
+      node_js: '12'
+      script: npm run lint
     - stage: deploy
       node_js: '12'
       script:
