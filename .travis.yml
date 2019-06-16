@@ -12,10 +12,10 @@ node_js:
   - '10'
   - '12'
 
+script: npm run test:prod
+
 jobs:
   include:
-    - stage: tests
-      script: npm run test:prod
     - stage: deploy
       node_js: '12'
       script:
