@@ -4,13 +4,10 @@ export type ConfigArg = {
   numberOfPages: number;
   initialPage: number;
   maxButtons?: number;
-  showEllipsis?: boolean;
-  padding?: number;
 };
 
 type Config = ConfigArg & {
   maxButtons: number;
-  padding: number;
 };
 
 export type PaginatorPiece =
@@ -38,7 +35,7 @@ export interface State {
 }
 
 function computeVisiblePieces(activePage: number, config: Config): PaginatorPiece[] {
-  const { numberOfPages, maxButtons, showEllipsis, padding } = config;
+  const { numberOfPages, maxButtons } = config;
   const visiblePieces: PaginatorPiece[] = [];
 
   if (numberOfPages <= maxButtons) {
@@ -101,7 +98,7 @@ export function usePagination(_config: ConfigArg) {
     );
   }
 
-  const config: Config = { maxButtons: 5, padding: 2, ..._config };
+  const config: Config = { maxButtons: 5, ..._config };
 
   if (config.initialPage > config.numberOfPages) {
     config.initialPage = config.numberOfPages;
