@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect } from 'react';
+import { AugmentedRequired } from './type-utils';
 
 export type ConfigArg = {
   numberOfPages: number;
@@ -6,9 +7,7 @@ export type ConfigArg = {
   maxButtons?: number;
 };
 
-type Config = ConfigArg & {
-  maxButtons: number;
-};
+type Config = AugmentedRequired<ConfigArg, 'maxButtons'>;
 
 export type PaginatorPiece =
   | {
