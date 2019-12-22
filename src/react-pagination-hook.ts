@@ -67,7 +67,7 @@ function computeVisiblePieces(activePage: number, config: Config): PaginatorPiec
     }
   }
 
-  if (lowerLimit > 1) {
+  if (lowerLimit > 1 && lowerLimit !== upperLimit) {
     visiblePieces.push({ type: 'page-number', pageNumber: 1 });
     visiblePieces.push({ type: 'ellipsis' });
   }
