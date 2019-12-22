@@ -34,7 +34,7 @@
     };
 
     function computeVisiblePieces(activePage, config) {
-        var numberOfPages = config.numberOfPages, maxButtons = config.maxButtons, showEllipsis = config.showEllipsis, padding = config.padding;
+        var numberOfPages = config.numberOfPages, maxButtons = config.maxButtons;
         var visiblePieces = [];
         if (numberOfPages <= maxButtons) {
             for (var page = 1; page <= numberOfPages; page++) {
@@ -60,7 +60,7 @@
                 i++;
             }
         }
-        if (lowerLimit > 1) {
+        if (lowerLimit > 1 && lowerLimit !== upperLimit) {
             visiblePieces.push({ type: 'page-number', pageNumber: 1 });
             visiblePieces.push({ type: 'ellipsis' });
         }
@@ -82,7 +82,7 @@
         if (typeof _config !== 'object') {
             throw new TypeError("usePagination(config): config must be an object. Go " + typeof _config + " instead");
         }
-        var config = __assign({ maxButtons: 5, padding: 2 }, _config);
+        var config = __assign({ maxButtons: 5 }, _config);
         if (config.initialPage > config.numberOfPages) {
             config.initialPage = config.numberOfPages;
         }

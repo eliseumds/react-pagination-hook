@@ -141,4 +141,34 @@ describe('react-pagination-hook', () => {
 
     expect(hook.result.current.visiblePieces).toStrictEqual(buildExpectation(expectation));
   });
+
+  test('maximum 1 button', () => {
+    const hook = renderHook(() =>
+      usePagination({
+        numberOfPages: 3,
+        maxButtons: 1,
+        initialPage: 1,
+      })
+    );
+
+    expect(hook.result.current.visiblePieces).toStrictEqual(
+      buildExpectation('!previous:1 1 next:2')
+    );
+
+    act(() => {
+      hook.result.current.goToPage(2);
+    });
+
+    expect(hook.result.current.visiblePieces).toStrictEqual(
+      buildExpectation('previous:1 2 next:3')
+    );
+
+    act(() => {
+      hook.result.current.goToPage(3);
+    });
+
+    expect(hook.result.current.visiblePieces).toStrictEqual(
+      buildExpectation('previous:2 3 !next:3')
+    );
+  });
 });
